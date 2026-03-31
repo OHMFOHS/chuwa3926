@@ -1,0 +1,40 @@
+1.
+JDK is Java Development Kit, it contains JRE + javac(Compiler).
+JRE is Java Runtime Environment, it contains JVM and Class Libraries and Class Loader.
+JVM is Java virture machine, it provides platform to run Java bytecode and different version on different platform.
+
+2.
+10, because in java, value is copied for primitive types like int.
+
+3.
+100, becasue arrys in java is reference type and int[] arr2 = arr1 creating a refrence to arr1 and arr1 was modified to 100.
+
+4.
+-> true, becasue java will find the same String in String pool and return it when creating a same String in a way like line 2.
+-> false, becasue we are comparing refrence of a String and s3 was created by new String("hello"), so java will create a new String with different reference.
+-> true, .equals() compares if 2 string is logical equal.
+
+5.
+final variable means a constant.
+final method means a method can not be overriding.
+final class means a class can not be inherited.
+
+6.
+static variable belong to class itself but instance variable belong to a instance after creating a new object.
+we can use static varible if we want to have a varible that is excatly the same variable in all instances.
+
+7.
+compile will failed, becasue x is marked as final and can't be changed after assigning a value.
+
+8.
+Inheritence : a new class is created from an existing class, inheriting its non-private fields and methods.
+Encapsulation : bundling data and methods within a single unit and restricting direct access to some components.
+Polymorphism: ability of an object to take different behavior based on context.
+Abstraction : Hiding implementation details and exposing only essential features.
+
+9.
+Encapsulation is bundling data and methods within a single unit and restricting direct access to some components.
+set variable can prevent data be modified directly from outside and public getter/setter provides a method to operate it.
+
+10.
+3
