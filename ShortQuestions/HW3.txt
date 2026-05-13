@@ -1,0 +1,97 @@
+1.
+Throwable
+├── Error
+│   ├── OutOfMemoryError
+│   └── StackOverflowError
+└── Exception
+    ├── Checked Exceptions (必须处理)
+    │   ├── IOException
+    │   └── ClassNotFoundException
+    └── RuntimeException (Unchecked, 可选捕获)
+        ├── NullPointerException
+        └── IndexOutOfBoundsException
+
+2.
+What is the difference between Checked Exception and Unchecked Exception? Which one does
+the compiler force you to handle? Give two examples of each type.
+checked Exception like IOException and ClassNotFoundException must be handled in the code and unchecked RuntimeException like NullPointerException and IndexOutOfBoundsException is not.
+
+
+3.
+output will be 
+"try"
+"finally"
+3
+because in java, if a finally block has a return statement, it overrides any previous return from try or catch block.
+
+4.
+throw is used inside a method to actually throw an exception object.
+throws is used in a method signature to declare the exception that a method might throw.
+import java.io.*;
+
+public class ThrowThrowsExample {
+
+    // Method declares it may throw IOException
+    public static void readFile(String filename) throws IOException {
+        File file = new File(filename);
+        if (!file.exists()) {
+            // Actually throws an exception
+            throw new IOException("File not found: " + filename);
+        }
+        System.out.println("File exists!");
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile("nonexistent.txt");
+        } catch (IOException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+    }
+}
+
+5.
+When executed, it immediately throws RuntimeException("Error 3"). Error 1 and Error 2 are lost, they are suppressed by the finally exception.
+
+6.
+No, an enum cannot extend another class. In Java, every enum implicitly extends java.lang.Enum.
+Java does not allow multiple inheritance of classes, so extending another class would conflict with the implicit Enum superclass.
+
+An enum can implement one or more interfaces. Java allows classes (including enum) to implement interfaces to define behaviors.
+
+7.
+output will be:
+PENDING - > 0 - > 0
+PROCESSING - > 1 - > 1
+COMPLETED - > 2 - > 2
+
+8.
+Aspect	Aggregation	Composition
+Relationship Type	“Has-a” (weak relationship)	“Part-of” / strong ownership
+Lifecycle	Independent; child can exist without parent	Dependent; child’s lifecycle is tied to parent
+Object Creation Location	Child object can be created outside parent and passed in	Parent creates and owns child object
+UML Symbol	Hollow diamond	Filled (black) diamond
+Example	School has Teacher (a teacher can exist without a school)	House has Room (a room cannot exist without the house)
+
+Aggregation = weak association, child can live independently.
+Composition = strong ownership, child cannot exist without parent.
+
+9.
+This is an Aggregation relationship.
+The Library has a list of Book objects. Book objects are created independently. Library does not control the Book lifecycle.
+
+10.
+Private Static Instance Variable to holds the only instance of the class.
+Private Constructor to prevents other classes from instantiating the class using new.
+Public Static Method to Get the Instance. Provides a global access point to the instance.
+
+If the constructor is public, anyone can call new Singleton(), creating multiple instances.
+Singleton requires exactly one instance; private constructor enforces this rule.
+All access to the instance is controlled via the static method (getInstance()).
+
+11.
+Eager Initialization Singleton : Instance created at class loading time. The object is created even if it might never be used. Thread-safe without extra synchronization.
+Lazy Initialization Singleton : Instance created only when needed.
+
+12.
+not correct, the constructor should be private to avoid creating multiple instances.
