@@ -1,0 +1,72 @@
+1. What is the difference between method overloading and method overriding? In which type of
+polymorphism does each belong?
+Overloading Occurs when two or more methods in the same class have the same name but different parameter lists. -> compile time polymorphism.
+Overring Occurs when a subclass provides a specific implementation of a method already defined in its superclass. -> runtime polymorphism.
+
+2.What will be the output of the following code? Explain why.
+output will be "Bark!", because makeSound() is overrided in dog class.
+
+3. Why does Java NOT support multiple inheritance with classes? What is the "Diamond Problem"?
+How does Java solve this issue?
+If a class extends 2 different class and they have same method, it will create ambiguity.
+The Diamond Problem occurs when:
+Diamond Problem is A class A is extended by two subclasses B and C. Another class D inherits from both B and C.
+If A has a method foo(), and B and C override it differently, which version does D inherit?
+
+So java use Single inheritance for classes, Each class extends only one superclass to solve this.
+
+4. What will happen when you try to compile and run the following code? Explain your answer.
+compile will fail becasue shape is an abstract class.
+
+5.What is the difference between an abstract class and an interface? Give one scenario where you
+would prefer using an interface over an abstract class.
+abstract class can have abstract method and concrete method, interface can only have abstract method default method and static method.
+interface Drivable {
+    void accelerate();
+    void brake();
+} Both Car and Bike can implement Drivable, even though they don’t share a parent class. Abstract class wouldn’t work here because Java only allows single inheritance, so you couldn’t extend another class.
+
+6. What will be the output of the following code? Explain the concept of upcasting and
+downcasting.
+
+output will be 
+Animal eating
+Meow!
+
+Animal a = new Cat(); is upcasting, and is allowed because cat is subclass of Animal
+Cat c = (Cat) a; is downcasting, and it is safe.
+
+7. What are the rules for overriding the equals() method? Why must we also override hashCode()
+when we override equals()?
+Reflexive x.equals(x) == true 
+An object must equal itself.
+
+Symmetric x.equals(y) == y.equals(x)
+If x equals y, then y must equal x.
+
+Transitive if x.equals(y) && y.equals(z) then x.equals(z) == true
+Equality must be consistent across objects.
+
+Consistent
+multiple calls to x.equals(y) should always return the same result Unless a property used in equals() changes.
+
+Non-nullity x.equals(null) == false
+equals() must never throw NullPointerException when passed null; it should simply return false.
+
+The hashCode contract: if two objects are equal according to equals(), they must have the same hash code.
+Many Java collections use hash codes (like HashMap, HashSet) to organize objects. If hashCode() isn’t overridden, p1 and p2 may have different hash codes.
+
+8. What is the difference between shallow copy and deep copy? Given an object Person with a field
+Address address, explain what happens to the address field in each type of copy.
+A shallow copy creates a new object, but does not clone objects referenced by its fields. Instead, it copies the references to the same objects. Changes to mutable fields in the copied object affect the original.
+A deep copy creates a new object and recursively clones all objects referenced by its fields. Changes to the copied object do NOT affect the original.
+
+9. What will be the output of the following code? Explain why.
+output will be "Taking off from Flyable", because in Duck,  we override the method and let it to use takeoff from Flyable.
+
+10. Consider the following code. Which methods are valid overloads of calculate(int a, int
+b)? Which are NOT valid and why?
+A is valid because have more parameters.
+B is valid because different type of parameter.
+C is not valid because it only have different return value.
+D is valid because java allow overloading use difference access modifyer.
